@@ -36,6 +36,12 @@ class Categorie
     {
         return $this->id;
     }
+    public function setId(string $id): static
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getLibelle(): ?string
     {

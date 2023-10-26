@@ -41,6 +41,7 @@ class Detail
 
         return $this;
     }
+    
 
     public function getPlat(): ?plat
     {

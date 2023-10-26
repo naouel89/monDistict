@@ -22,12 +22,20 @@ class Commande
     #[ORM\Column]
     private ?int $quantite = null;
 
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    private ?string $total = null;
+
+    #[ORM\Column]
+    private ?int $etat = null;
+
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?utilisateur $utiliateur = null;
 
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Detail::class)]
     private Collection $details;
+
+    
 
     public function __construct()
     {
@@ -39,6 +47,13 @@ class Commande
     public function getId(): ?int
     {
         return $this->id;
+    }
+    
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getDateCommande(): ?\DateTimeInterface
@@ -76,6 +91,30 @@ class Commande
 
         return $this;
     }
+    public function getTotal(): ?string
+    {
+        return $this->total;
+    }
+
+    public function setTotal(string $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    public function getEtat(): ?int
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(int $etat): static
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
 
     /**
      * @return Collection<int, Detail>

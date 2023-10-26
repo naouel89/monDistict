@@ -16,10 +16,10 @@ class Plat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 150)]
     private ?string $libelle = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column]
