@@ -6,15 +6,46 @@ use App\Entity\Commande;
 use App\Entity\Categorie;
 use App\Entity\Plat;
 use App\Entity\Utilisateur;
-
+use App\Repository\UtilisateurRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 
 class AppFixtures extends Fixture
 
 {
     public function load(ObjectManager $manager): void
     {include 'district.php';
+
+ //cree l'utilisateur avant la commande 
+ $utilisateurRepo = $manager->getRepository(Utilisateur::class);
+
+foreach($utilisateur as $utilisateurData){
+ 
+    $utilisateurDB = new utilisateur();
+    $utilisateurDB
+    ->setId($utilisateurData['id'])
+    ->setEmail($utilisateurData['email'])
+    ->setRoles([$utilisateurData['roles']])
+    ->setPassword($utilisateurData['password'])
+    ->setNom($utilisateurData['nom'])
+    ->setPrenom($utilisateurData['prenom'])
+    ->setTelephone($utilisateurData['telephone'])
+    ->setAdresse($utilisateurData['adresse'])
+    ->setCodePostal($utilisateurData['code_postal'])
+    ->setVille($utilisateurData['ville'])
+    ;
+    // dd($utilisateurDB);
+$manager->persist($utilisateurDB);
+
+$metadata = $manager->getClassMetaData(Utilisateur::class);
+$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+}
+
+$manager->flush();
+
+
+
         $categorieRepo = $manager->getRepository(Categorie::class);
 
         foreach ($categorie as $categorieData){
@@ -52,25 +83,6 @@ class AppFixtures extends Fixture
             $manager->persist($platDB);
         }
         $manager->flush();
- //cree l'utilisateur avant la commande 
- $utilisateurRepo = $manager->getRepository(Utilisateur::class);
-foreach($utiliateur as 	$utilisateurData){
-    $utilisateurDB = new utilisateur();
-    $utilisateurDB
-    ->setId($utilisateurData['id'])
-    ->setEmail($utilisateurData['email'])
-    ->setRoles($utilisateurData['ROLE_USER'])
-    ->setPassword($utilisateurData['password'])
-    ->setNom($utilisateurData['nom'])
-    ->setPrenom($utilisateurData['prenom'])
-    ->setTelephone($utilisateurData['telephone'])
-    ->setAdresse($utilisateurData['adresse'])
-    ->setCodePostal($utilisateurData['code_postal'])
-    ->setVille($utilisateurData['ville'])
-    ;
-}
-$metadata = $manager->getClassMetaData(Utilisateur::class);
-$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
 
         $commandeRepo = $manager->getRepository(Commande::class);
 
@@ -79,8 +91,9 @@ $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYP
             $dateCommande = new \DateTime($commandeData['date_commande']);
             $commandeDB
                 ->setId($commandeData['id'])
-                
+            
                 ->setDateCommande($dateCommande)
+                ->setUtilisateur($utilisateur_id)
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
 // dd($commandeDB);
@@ -115,5 +128,5 @@ $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYP
  
  
          $manager->flush();
-     }
- }
+    }
+  }

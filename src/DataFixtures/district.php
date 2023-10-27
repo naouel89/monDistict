@@ -16,20 +16,20 @@ $categorie = array(
 );
 
 /* `district`.`utilisateur` */
-$utiliateur = array(
+$utilisateur = array(
  
-  array('id' => '1','email' => 'meyxana80@gmail.com','password' => '1234','roles'=>'ROLE_USER','nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
-  array('id' => '2','email' => 'enzo@enzo.com','password' => '1234','roles'=>'ROLE_USER','nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
-  array('id' => '3','email' => 'jessus.n@gmail.com','password' => '1234','roles'=>'ROLE_USER','nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
+  array('id' => '1','email' => 'meyxana80@gmail.com','password' => '1234','roles'=>['ROLE_USER'],'nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
+  array('id' => '2','email' => 'enzo@enzo.com','password' => '1234','roles'=>['ROLE_USER'],'nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
+  array('id' => '3','email' => 'jessus.n@gmail.com','password' => '1234','roles'=>['ROLE_USER'],'nom'=>'toto','prenom'=>'jojo', 'telephone'=>'0665582465','adresse'=>'rara', 'code_postal'=>'80000', 'ville'=>'Amiens'),
 
 );
 
 // $manager->persist($categorie);
 /* `district`.`commande` */
 $commande = array(
-  array('id' => '7','id_plat' => '10','utiliateur_id' => '1','total' => '16.00','date_commande' => '2021-07-20 06:40:21','etat' => 'En cours de livraison','nom_client' => 'Claudia Hedley','telephone_client' => '7451114400','email_client' => 'hedley@gmail.com','adresse_client' => '1119 Kinney Street'),
-  array('id' => '8','id_plat' => '14','utiliateur_id ' => '2','total' => '14.00','date_commande' => '2021-07-20 06:40:57','etat' => 'En préparation','nom_client' => 'Vernon Vargas','telephone_client' => '7414744440','email_client' => 'venno@gmail.com','adresse_client' => '1234 Hazelwood Avenue'),
-  array('id' => '9','id_plat' => '9','utiliateur_id ' => '3','total' => '20.00','date_commande' => '2021-07-20 07:06:06','etat' => 'Annulée','nom_client' => 'Carlos Grayson','telephone_client' => '7401456980','email_client' => 'carlos@gmail.com','adresse_client' => '2969 Hartland Avenue')
+  array('id' => '7','id_plat' => '10','utilisateur_id' => '10','total' => '16.00','date_commande' => '2021-07-20 06:40:21','etat' => 'En cours de livraison','nom_client' => 'Claudia Hedley','telephone_client' => '7451114400','email_client' => 'hedley@gmail.com','adresse_client' => '1119 Kinney Street'),
+  array('id' => '8','id_plat' => '14','utilisateur_id' => '11','total' => '14.00','date_commande' => '2021-07-20 06:40:57','etat' => 'En préparation','nom_client' => 'Vernon Vargas','telephone_client' => '7414744440','email_client' => 'venno@gmail.com','adresse_client' => '1234 Hazelwood Avenue'),
+  array('id' => '9','id_plat' => '9','utilisateur_id' => '12','total' => '20.00','date_commande' => '2021-07-20 07:06:06','etat' => 'Annulée','nom_client' => 'Carlos Grayson','telephone_client' => '7401456980','email_client' => 'carlos@gmail.com','adresse_client' => '2969 Hartland Avenue')
 );
 // $manager->persist($commande);
 

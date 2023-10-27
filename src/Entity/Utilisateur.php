@@ -47,7 +47,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $ville = null;
 
-    #[ORM\OneToMany(mappedBy: 'utiliateur', targetEntity: Commande::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'utilisateur', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
     public function __construct()
@@ -211,25 +211,25 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->commandes;
     }
 
-    public function addCommande(Commande $commande): static
-    {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->setUtiliateur($this);
-        }
+    // public function addCommande(Commande $commande): static
+    // {
+    //     if (!$this->commandes->contains($commande)) {
+    //         $this->commandes->add($commande);
+    //         $commande->setUtilisateur($this);
+    //     }
 
-        return $this;
+    //     return $this;
+    // }
+
+    // public function removeCommande(Commande $commande): static
+    // {
+    //     if ($this->commandes->removeElement($commande)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($commande->getUtilisateur() === $this) {
+    //             $commande->setUtilisateur(null);
+    //         }
+    //     }
+
+        // return $this;
     }
 
-    public function removeCommande(Commande $commande): static
-    {
-        if ($this->commandes->removeElement($commande)) {
-            // set the owning side to null (unless already changed)
-            if ($commande->getUtiliateur() === $this) {
-                $commande->setUtiliateur(null);
-            }
-        }
-
-        return $this;
-    }
-}

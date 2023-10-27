@@ -29,7 +29,7 @@ class Commande
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?utilisateur $utiliateur = null;
+    private ?utilisateur $utilisateur = null;
 
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Detail::class)]
     private Collection $details;
@@ -69,14 +69,14 @@ class Commande
 
 
 
-    public function getUtiliateur(): ?utilisateur
+    public function getUtilisateur(): ?utilisateur
     {
-        return $this->utiliateur;
+        return $this->utilisateur;
     }
 
-    public function setUtiliateur(?utilisateur $utiliateur): static
+    public function setUtilisateur(?utilisateur $utilisateur): static
     {
-        $this->utiliateur = $utiliateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
