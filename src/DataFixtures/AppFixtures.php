@@ -57,6 +57,7 @@ class AppFixtures extends Fixture
             $dateCommande = new \DateTime($commandeData['date_commande']);
             $commandeDB
                 ->setId($commandeData['id'])
+                
                 ->setDateCommande($dateCommande)
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
@@ -71,20 +72,16 @@ class AppFixtures extends Fixture
  
          $platRepo = $manager->getRepository(Plat::class);
  
-         // J'initialise un tableau vide pour stoker les données de détail
+         
          $detail = [];
          foreach ($detail as $detailData) {
              $detailDB = new detail();
              $detailDB
                  ->setQuantite($detailData['quantite']);
-             // j'obtient la commande correspondante à partir de l'Id spécifié dans $detailData['commande_id']
              $commande = $commandeRepo->find($detailData['commande_id']);
              $detailDB->setCommande($commande);
- 
              $plat = $platRepo->find($detailData['plat_id']);
              $detailDB->setPlat($plat);
- 
- 
  
              $manager->persist($detailDB);
          }
