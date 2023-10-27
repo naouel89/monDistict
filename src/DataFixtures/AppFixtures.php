@@ -5,6 +5,7 @@ use App\Entity\Detail;
 use App\Entity\Commande;
 use App\Entity\Categorie;
 use App\Entity\Plat;
+use App\Entity\Utilisateur;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -46,10 +47,31 @@ class AppFixtures extends Fixture
             $categorie = $categorieRepo->find($platData['id_categorie']);
             $platDB->setCategorie($categorie);
 
+            // dd($platDB);
+
             $manager->persist($platDB);
         }
         $manager->flush();
- 
+ //cree l'utilisateur avant la commande 
+ $utilisateurRepo = $manager->getRepository(Utilisateur::class);
+foreach($utiliateur as 	$utilisateurData){
+    $utilisateurDB = new utilisateur();
+    $utilisateurDB
+    ->setId($utilisateurData['id'])
+    ->setEmail($utilisateurData['email'])
+    ->setRoles($utilisateurData['ROLE_USER'])
+    ->setPassword($utilisateurData['password'])
+    ->setNom($utilisateurData['nom'])
+    ->setPrenom($utilisateurData['prenom'])
+    ->setTelephone($utilisateurData['telephone'])
+    ->setAdresse($utilisateurData['adresse'])
+    ->setCodePostal($utilisateurData['code_postal'])
+    ->setVille($utilisateurData['ville'])
+    ;
+}
+$metadata = $manager->getClassMetaData(Utilisateur::class);
+$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+
         $commandeRepo = $manager->getRepository(Commande::class);
 
         foreach ($commande as $commandeData) {
@@ -61,6 +83,8 @@ class AppFixtures extends Fixture
                 ->setDateCommande($dateCommande)
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
+// dd($commandeDB);
+
 
             $manager->persist($commandeDB);
 
@@ -80,8 +104,11 @@ class AppFixtures extends Fixture
                  ->setQuantite($detailData['quantite']);
              $commande = $commandeRepo->find($detailData['commande_id']);
              $detailDB->setCommande($commande);
+             $detailDB->setId($detailData['id']);
+
              $plat = $platRepo->find($detailData['plat_id']);
              $detailDB->setPlat($plat);
+            //  dd($detailDB);
  
              $manager->persist($detailDB);
          }

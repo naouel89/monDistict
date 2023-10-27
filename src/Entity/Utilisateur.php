@@ -59,6 +59,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+    public function setId(int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getEmail(): ?string
     {
