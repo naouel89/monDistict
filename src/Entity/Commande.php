@@ -74,9 +74,9 @@ class Commande
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(?utilisateur $utilisateur): static
+    public function setUtilisateur(?utilisateur $utilisateur_id): static
     {
-        $this->utilisateur = $utilisateur;
+        $this->utilisateur = $utilisateur_id;
 
         return $this;
     }

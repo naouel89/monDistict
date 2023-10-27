@@ -22,12 +22,13 @@ class AppFixtures extends Fixture
 
 foreach($utilisateur as $utilisateurData){
  
-    $utilisateurDB = new utilisateur();
+    $utilisateurDB = new Utilisateur();
     $utilisateurDB
     ->setId($utilisateurData['id'])
-    ->setEmail($utilisateurData['email'])
-    ->setRoles([$utilisateurData['roles']])
+    ->setEmail($utilisateurData['email']) 
     ->setPassword($utilisateurData['password'])
+    ->setRoles([$utilisateurData['roles']])
+   
     ->setNom($utilisateurData['nom'])
     ->setPrenom($utilisateurData['prenom'])
     ->setTelephone($utilisateurData['telephone'])
@@ -89,11 +90,14 @@ $manager->flush();
         foreach ($commande as $commandeData) {
             $commandeDB = new Commande();
             $dateCommande = new \DateTime($commandeData['date_commande']);
+            $utilisateurData = new Utilisateur($utilisateurData['utilisateur_id']);
+            
+            // $utilisateurData = new Utilisateur($commandeData['utilisateur_id']);
             $commandeDB
                 ->setId($commandeData['id'])
             
                 ->setDateCommande($dateCommande)
-                ->setUtilisateur($utilisateur_id)
+                ->setUtilisateur($utilisateur['utilisateur_id'])
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
 // dd($commandeDB);

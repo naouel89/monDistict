@@ -14,6 +14,7 @@ $categorie = array(
   array('id' => '14','libelle' => 'Veggie','image' => 'veggie_cat.jpg','active' => 'Yes'),
   array('id' => '15','libelle' => 'Tacos','image' => 'tacos_cat.jpg','active' => 'Yes')
 );
+// $manager->persist($categorie);
 
 /* `district`.`utilisateur` */
 $utilisateur = array(
@@ -24,7 +25,6 @@ $utilisateur = array(
 
 );
 
-// $manager->persist($categorie);
 /* `district`.`commande` */
 $commande = array(
   array('id' => '7','id_plat' => '10','utilisateur_id' => '10','total' => '16.00','date_commande' => '2021-07-20 06:40:21','etat' => 'En cours de livraison','nom_client' => 'Claudia Hedley','telephone_client' => '7451114400','email_client' => 'hedley@gmail.com','adresse_client' => '1119 Kinney Street'),
