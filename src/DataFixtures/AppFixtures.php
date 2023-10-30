@@ -86,18 +86,18 @@ $manager->flush();
         $manager->flush();
 
         $commandeRepo = $manager->getRepository(Commande::class);
-
+// $utilisateur = (['']);
         foreach ($commande as $commandeData) {
             $commandeDB = new Commande();
             $dateCommande = new \DateTime($commandeData['date_commande']);
-            $utilisateurData = new Utilisateur($utilisateurData['utilisateur_id']);
-            
+            // $utilisateurData = new Utilisateur($utilisateurData['utilisateur_id']);
+            // $utilisateur = $utilisateurRepo -> find($commandeData['utilisateur_id']);
             // $utilisateurData = new Utilisateur($commandeData['utilisateur_id']);
             $commandeDB
                 ->setId($commandeData['id'])
             
                 ->setDateCommande($dateCommande)
-                ->setUtilisateur($utilisateur['utilisateur_id'])
+                // ->setUtilisateur($utilisateur['utilisateur_id'])
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
 // dd($commandeDB);
