@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CatalogueController extends AbstractController
 {
+    
     private $categorieRepo;
     private $platRepo;
 
@@ -65,7 +66,7 @@ class CatalogueController extends AbstractController
         dump($categorie);
 
         $plats = $categorie->getPlats();
-        return $this->render('catalogue/platsCategorie.html.twig', [
+        return $this->render('catalogue/plats.html.twig', [
             // 'controller_name' => 'CatalogueController',
             'categories' => $categorie,
             'plats' => $plats,

@@ -11,7 +11,7 @@
 				{% for plat in plats %}
 					<div class="col-md-6 mb-4">
 						<div class="card" id="images" style="width: 18rem;">
-							<img src="{{ asset('IMG/food/' ~ plat.image) }}" alt="{{ plat.libelle }}">
+							<img src="{{ asset('IMG/' ~ plat.image) }}" alt="{{ plat.libelle }}">
 							<div class="card-body">
 								<h5 class="card-title">{{ plat.libelle }}></h5>
 								<p class="card-text">
@@ -21,11 +21,6 @@
 							</div>
 						</div>
 					</div>
-					{# $count++; // Incrémentez le compteur
-								            // Si vous avez affiché 2 disques, fermez la rangée actuelle et commencez une nouvelle rangée
-								            if ($count % 2 == 0) {
-								                echo '</div><div class="row">';
-								            } #}
 					{% if loop.index is even %}
 					</div>
 					<div class="row">

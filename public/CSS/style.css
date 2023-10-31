@@ -1,0 +1,410 @@
+/* Ajoutez les styles de base */
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Styles pour le carrousel */
+.carousel-container {
+    overflow: hidden;
+    width: 80%;
+    margin: 20px 0;
+}
+
+.carousel {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 200px; /* Largeur de chaque élément du carrousel */
+    margin-right: 10px; /* Espacement entre les éléments */
+    scroll-snap-align: start;
+    border: 1px solid #009af9;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Cache la barre de défilement horizontale */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles pour la navbar */
+.navbar {
+    background-color: #333; /* Couleur de fond de la navbar */
+    color: #000000; /* Couleur du texte de la navbar */
+}
+
+.navbar-brand {
+    font-size: 24px; /* Taille de la police du texte du logo */
+}
+
+.navbar-toggler-icon {
+    color: #000000; /* Couleur de l'icône du bouton de navigation */
+}
+
+.navbar-nav .nav-link {
+    color: #000000; /* Couleur des liens dans la navbar */
+    font-size: 18px; /* Taille de la police des liens */
+}
+
+/* Styles pour le carousel */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de l'overlay semi-transparent */
+    color: #e61414; /* Couleur du texte dans l'overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.overlay h1 {
+    font-size: 36px; /* Taille de la police du titre */
+    margin-bottom: 20px;
+}
+
+.overlay .logo {
+    width: 200px; /* Largeur du logo */
+    height: 200px; /* Hauteur du logo */
+    animation: rotation 3.5s infinite linear;
+}
+
+/* Animation de rotation pour le logo */
+@keyframes rotation {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+  
+  .centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styles pour le titre h1 */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Styles pour le conteneur principal */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color:#f50000 ;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style des catégories de plats */
+.categorie-item {
+    background-color: #00b3ff;
+    border: 1px solid #060708;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0px;
+    transition: transform 0.3s ease-in-out;
+    flex: 0 0 calc(33.333% - 20px); /* Pour trois catégories par ligne */
+    /* flex: 0 0 calc(50% - 20px); */ /* Pour deux catégories par ligne */
+    box-sizing: border-box;
+}
+
+.categorie-item:hover {
+    transform: scale(1.05);
+}
+
+.categorie-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.categorie-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.categorie-item h2 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Style pour deux catégories par ligne */
+@media (max-width: 768px) {
+    .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .categorie-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+/* Style pour une catégorie par ligne */
+@media (max-width: 480px) {
+    .main-content {
+        display: block;
+    }
+
+    .categorie-item {
+        flex: 0 0 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles pour la section de bannière (ajoutez vos propres styles) */
+.banner {
+    background-image: url('votre-image-de-banniere.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    margin-top: 20px;
+}
+
+/* Vous pouvez ajouter d'autres styles spécifiques au besoin */
+
+/* bas de page */
+/* Style général */
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #f50000;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+/* Style de la vidéo en arrière-plan */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Ratio d'aspect 16:9 pour la vidéo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Style du pied de page */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+footer .social-media-icons {
+    list-style: none;
+    padding: 0;
+}
+
+footer .social-media-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+/* Style des icônes */
+.bi, .fab {
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Style des médias sociaux */
+.social-media-icons a:hover {
+    color: #ffffff;
+}
+
+/* Style des coordonnées */
+.col-md-4 {
+    text-align: center;
+}
+
+/* Style des horaires */
+.col-md-4 ul {
+    list-style: none;
+    padding: 0;
+}
+
+.col-md-4 li {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Réinitialisation des styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+
+
+.button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #f50000;
+}
+
+.link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
