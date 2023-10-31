@@ -18,11 +18,11 @@ class Detail
 
     #[ORM\ManyToOne(inversedBy: 'details')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?plat $plat = null;
+    private ?Plat $plat = null;
 
     #[ORM\ManyToOne(inversedBy: 'details')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?commande $commande = null;
+    private ?Commande $commande = null;
 
 
     public function getId(): ?int
