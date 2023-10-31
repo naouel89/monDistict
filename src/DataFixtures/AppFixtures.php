@@ -15,35 +15,36 @@ class AppFixtures extends Fixture
 
 {
     public function load(ObjectManager $manager): void
-    {include 'district.php';
+    {
+        include 'district.php';
 
- //cree l'utilisateur avant la commande 
- $utilisateurRepo = $manager->getRepository(Utilisateur::class);
+        //cree l'utilisateur avant la commande 
+        $utilisateurRepo = $manager->getRepository(Utilisateur::class);
 
-foreach($utilisateur as $utilisateurData){
- 
-    $utilisateurDB = new Utilisateur();
-    $utilisateurDB
-    ->setId($utilisateurData['id'])
-    ->setEmail($utilisateurData['email']) 
-    ->setPassword($utilisateurData['password'])
-    ->setRoles([$utilisateurData['roles']])
-   
-    ->setNom($utilisateurData['nom'])
-    ->setPrenom($utilisateurData['prenom'])
-    ->setTelephone($utilisateurData['telephone'])
-    ->setAdresse($utilisateurData['adresse'])
-    ->setCodePostal($utilisateurData['code_postal'])
-    ->setVille($utilisateurData['ville'])
-    ;
-    // dd($utilisateurDB);
-$manager->persist($utilisateurDB);
+        foreach($utilisateur as $utilisateurData){
+        
+            $utilisateurDB = new Utilisateur();
+            $utilisateurDB
+            ->setId($utilisateurData['id'])
+            ->setEmail($utilisateurData['email']) 
+            ->setPassword($utilisateurData['password'])
+            ->setRoles([$utilisateurData['roles']])
+        
+            ->setNom($utilisateurData['nom'])
+            ->setPrenom($utilisateurData['prenom'])
+            ->setTelephone($utilisateurData['telephone'])
+            ->setAdresse($utilisateurData['adresse'])
+            ->setCodePostal($utilisateurData['code_postal'])
+            ->setVille($utilisateurData['ville'])
+            ;
+            // dd($utilisateurDB);
+            $manager->persist($utilisateurDB);
 
-$metadata = $manager->getClassMetaData(Utilisateur::class);
-$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
-}
+            $metadata = $manager->getClassMetaData(Utilisateur::class);
+            $metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_NONE);
+        }
 
-$manager->flush();
+        $manager->flush();
 
 
 
@@ -90,14 +91,19 @@ $manager->flush();
         foreach ($commande as $commandeData) {
             $commandeDB = new Commande();
             $dateCommande = new \DateTime($commandeData['date_commande']);
-            // $utilisateurData = new Utilisateur($utilisateurData['utilisateur_id']);
-            // $utilisateur = $utilisateurRepo -> find($commandeData['utilisateur_id']);
+
+            // $utilisateurId = isset($commandeData['utilisateur_id']) ? $commandeData['utilisateur_id'] : null;
+            // $utilisateur = $utilisateurId ? $utilisateurRepo->find($utilisateurId) : null;
+
+            // $utilisateur = new Utilisateur($utilisateur['utilisateur_id']);
+            $utilisateur = $utilisateurRepo -> find($commandeData['utilisateur_id']);
             // $utilisateurData = new Utilisateur($commandeData['utilisateur_id']);
             $commandeDB
                 ->setId($commandeData['id'])
             
                 ->setDateCommande($dateCommande)
-                // ->setUtilisateur($utilisateur['utilisateur_id'])
+                ->setUtilisateur($utilisateur)
+                // ['utilisateur_id'])
                 ->setTotal($commandeData['total'])
                 ->setEtat((int)$commandeData['etat']);
 // dd($commandeDB);

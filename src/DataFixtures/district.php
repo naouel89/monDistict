@@ -27,9 +27,9 @@ $utilisateur = array(
 
 /* `district`.`commande` */
 $commande = array(
-  array('id' => '7','id_plat' => '10','utilisateur_id' => '10','total' => '16.00','date_commande' => '2021-07-20 06:40:21','etat' => 'En cours de livraison','nom_client' => 'Claudia Hedley','telephone_client' => '7451114400','email_client' => 'hedley@gmail.com','adresse_client' => '1119 Kinney Street'),
-  array('id' => '8','id_plat' => '14','utilisateur_id' => '11','total' => '14.00','date_commande' => '2021-07-20 06:40:57','etat' => 'En préparation','nom_client' => 'Vernon Vargas','telephone_client' => '7414744440','email_client' => 'venno@gmail.com','adresse_client' => '1234 Hazelwood Avenue'),
-  array('id' => '9','id_plat' => '9','utilisateur_id' => '12','total' => '20.00','date_commande' => '2021-07-20 07:06:06','etat' => 'Annulée','nom_client' => 'Carlos Grayson','telephone_client' => '7401456980','email_client' => 'carlos@gmail.com','adresse_client' => '2969 Hartland Avenue')
+  array('id' => '7','id_plat' => '10','utilisateur_id' => '1','total' => '16.00','date_commande' => '2021-07-20 06:40:21','etat' => 'En cours de livraison'),
+  array('id' => '8','id_plat' => '14','utilisateur_id' => '2','total' => '14.00','date_commande' => '2021-07-20 06:40:57','etat' => 'En préparation'),
+  array('id' => '9','id_plat' => '9','utilisateur_id' => '3','total' => '20.00','date_commande' => '2021-07-20 07:06:06','etat' => 'Annulée'),
 );
 // $manager->persist($commande);
 
