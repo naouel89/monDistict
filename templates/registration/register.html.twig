@@ -1,0 +1,52 @@
+
+
+{% block title %}Créer un compte
+{% endblock %}
+
+{% block body %}
+
+
+		<h2 class="fst-italic text-black text-end">Inscription</h2>
+
+		<div class="container mx-auto text-white" id="formulaire">
+			{{ form_errors(registrationForm) }}
+
+			{{ form_start(registrationForm) }}
+
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.prenom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.telephone, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.adresse, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.codepostal, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.ville, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+
+			{{ form_row(registrationForm.RGPDConsent) }}
+
+			<button type="submit" class="btn btn-primary btn-lg text-white mt-5">Je m'inscrit</button>
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+	
+{% endblock %}

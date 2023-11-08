@@ -30,9 +30,9 @@
             </a>
 
             <!-- Icône du panier avec lien -->
-            <a href="/templates/panier.php" class="d-md-none">
+            {# <a href="/templates/panier.php" class="d-md-none">
                 <i class="bi bi-basket btn-icon btn-icon-large"></i>
-            </a>
+            </a> #}
 
             <!-- Lien "Mon compte" en tant que bouton en version mobile -->
             <a href="/templates/mon_compte.php" class="btn btn-primary d-md-none">Mon compte</a>
@@ -57,8 +57,9 @@
                         <!-- <a class="nav-link nav-link-custom" href="/templates/plats.php">Plats</a> -->
                         <a class="nav-link nav-link-custom" href="{{ path('app_plats') }}">Plats</a>
                     </li>
+                  
                     <li class="nav-item pe-4 pt-2">
-                        {# <a class="nav-link nav-link-custom" href="{{ path('app_contact') }}">Contact <i class="bi bi-envelope"></i></a> #}
+                        <a class="nav-link nav-link-custom" href="{{ path('app_contact') }}">Contact <i class="bi bi-envelope"></i></a>
                     </li>
                     <li class="nav-item pe-4 pt-2">
                         <a class="nav-link nav-link-custom" href="/templates/mon_compte.php"id="monCompteBtn"title="Inscription/Connexion">Mon compte</a>
@@ -73,7 +74,14 @@
             </div>
         </div>
     </nav>
+   
+	<video
 
+        		<source src="{{ asset('IMG/video/diet_-_26731 (Original).mp4')}}">
+
+	</video> 
+<body>
+</body>
 		{% block body %}{% endblock %}
         
 </html>
