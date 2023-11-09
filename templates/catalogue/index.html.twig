@@ -31,12 +31,15 @@
         </div>
 </div>
 </div>
-<main class="container mt-4">
+<main class="container mt-4" style="width:30%;">
 	<div class="row">
 		{% for categorie in categories %}
 			<div class="col-md-6 mb-4">
-				 {# <div class="card" id="images" style="width: 18rem;"> #}
-					<img src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}">
+				 <div class = "card text-center" id="images" style="width: 25rem;" >
+					<a href="{{ path('app_plats_categorie', {'categorie_id': categorie.id}) }}"><img src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}"></a>
+
+			
+
 					<div class="card-body">
 						<h5 class="card-title">{{ categorie.libelle }}</h5>
 					</div>

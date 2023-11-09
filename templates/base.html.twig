@@ -35,7 +35,7 @@
             </a> #}
 
             <!-- Lien "Mon compte" en tant que bouton en version mobile -->
-            <a href="/templates/mon_compte.php" class="btn btn-primary d-md-none">Mon compte</a>
+            {# <a href="/templates/mon_compte.php" class="btn btn-primary d-md-none">Mon compte</a> #}
 
             <!-- Bouton de menu avec icône du menu -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,9 +61,9 @@
                     <li class="nav-item pe-4 pt-2">
                         <a class="nav-link nav-link-custom" href="{{ path('app_contact') }}">Contact <i class="bi bi-envelope"></i></a>
                     </li>
-                    <li class="nav-item pe-4 pt-2">
+                    {# <li class="nav-item pe-4 pt-2">
                         <a class="nav-link nav-link-custom" href="/templates/mon_compte.php"id="monCompteBtn"title="Inscription/Connexion">Mon compte</a>
-                    </li>
+                    </li> #}
 
                     {# <a class="btn btn-command rounded-0 mt-3 align-items-center text-nowrap" href="/templates/commande_form.php">
                         <span class="d-md-none">Ma commande</span>
@@ -74,12 +74,16 @@
             </div>
         </div>
     </nav>
-   
-	<video
 
-        		<source src="{{ asset('IMG/video/diet_-_26731 (Original).mp4')}}">
 
-	</video> 
+        		
+<video
+		controls="controls" class="" loop="loop" autoplay="autoplay" muted>
+		
+        <source src="{{ asset('IMG/video/pexels-rdne-stock-project-5780437-3840x2160-24fps.mp4')}}">
+
+	</video>
+	
 <body>
 </body>
 		{% block body %}{% endblock %}
