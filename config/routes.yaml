@@ -4,3 +4,10 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+app_panier:
+    path: /panier
+    controller: App\Controller\PanierController::voirPanier
+
+# dashboard:
+#     path: /admin
+#     controller: App\Controller\Admin\DashboardController::index

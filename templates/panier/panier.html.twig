@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Panier</h1>
+                    <table class="table border border-dark bg-light">
+                        <thead>
+                            <tr>
+                                <th>Plat</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for element in data %}
+                                <tr>
+                                    <td>{% if element.plat.image %}
+                <img src="{{ asset(element.plat.image) }}" alt="{{ element.plat.libelle }}" style="max-height: 50px;">
+            {% else %}
+                Aucune image disponible
+            {% endif %}</td>
+                                    <td>{{ element.plat.prix }}€</td>
+                                    <td>{{ element.quantity }}</td>
+                                    <td>{{ element.quantity * element.plat.prix }}€</td>
+                                    <td>
+                                        <a href="{{ path('panier_add_panier', { id: element.plat.id }) }}" class="btn">+</a>
+                                        <a href="{{ path('panier_remove_panier', { id: element.plat.id }) }}" class="btn ">-</a>
+                                        <a href="{{ path('panier_delete_panier', { id: element.plat.id }) }}" class="btn ">Supprimer</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">Votre panier est vide</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"><b>Total</b></td>
+                                <td><b>{{ total }}€</b></td>
+                                <td>
+                                    <a href="{{ path('panier_empty_panier') }}" class="btn btn-danger">Vider</a>
+                              
+                                    {% if data is not empty %}
+                                        <a href="{{ path('app_contact') }}" class="btn btn-success">Finaliser</a>
+                                    {% else %}
+                                        <button class="btn btn-success" disabled>Finaliser</button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+            </div>
+        </section>
+    </main>
+    <br>
+    <br>
+{% endblock %}
