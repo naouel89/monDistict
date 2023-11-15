@@ -3,11 +3,25 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
-
+ajouter_au_panier:
+    path: /ajouter-au-panier/{platId}/{platImage}/{platPrix}/{platDescription}
+    controller: App\Controller\DistrictController::ajouterAuPanier
+    methods: ['GET','POST']
 app_panier:
     path: /panier
-    controller: App\Controller\PanierController::voirPanier
-
-# dashboard:
-#     path: /admin
-#     controller: App\Controller\Admin\DashboardController::index
+    controller: App\Controller\DistrictController::voirPanier
+chef_dashboard:
+    path: '/chef/dashboard'
+    controller: 'App\Controller\ChefController::dashboard'
+    methods: ['GET', 'POST']
+modifier_plat:
+    path: '/chef/modifier/{id}'
+    controller: 'App\Controller\ChefController::modifierPlat'
+    methods: ['GET', 'POST']
+    requirements:
+        id: '\d+'
+supprimer_plat:
+    path: '/chef/supprimer/{id}'
+    controller: 'App\Controller\ChefController::supprimerPlat'
+    requirements:
+        id: '\d+'

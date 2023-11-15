@@ -1,34 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Plats
-{% endblock %}
+{% block title %}Nos Plats{% endblock %}
 
 {% block body %}
-	<div class="contenu">
-		<h1 class="fst">Nos Plats</h1>
-		<main class="container">
-			<div class="row">
-				{% for plat in plats %}
-					<div class="col-md-6 mb-4">
-						<div class="card" id="images" style="width: 18rem;">
-							<img src="{{ asset( plat.image) }}" alt="{{ plat.libelle }}">
-							<div class="card-body">
-								<h5 class="card-title">{{ plat.libelle }}</h5>
-								<p class="card-text">
-									{{ plat.description}}</p>
-								<p class="content bg-body">
-									{{ plat.prix}} euros</p>
-								<a href="{{ path('panier_add_panier', { id: plat.id }) }}" >Ajouter au panier</a>
-
-							</div>
-						</div>
-					
-					</div>
-					{% if loop.index is even %}
-					</div>
-					<div class="row">
-					{% endif %}
-				{% endfor %}
-			</div>
-		</main>
-	{% endblock %}
+    <div class="contenu">
+        <h1 class="fst">Nos Plats</h1>
+        <main class="container">
+            <div class="row">
+                {% set sortedPlats = plats|sort((a, b) => a.libelle <=> b.libelle) %}
+                {% for plat in sortedPlats %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card" id="images" style="width: 18rem;">
+                            <img src="{{ asset(plat.image) }}" alt="{{ plat.libelle }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ plat.libelle }}</h5>
+                                <p class="card-text">
+                                    {{ plat.description }}
+                                </p>
+                                <p class="content bg-body">
+                                    {{ plat.prix }} euros
+                                </p>
+                                <a href="{{ path('panier_add_panier', { id: plat.id }) }}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% if loop.index is even %}
+                    </div>
+                    <div class="row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+{% endblock %}

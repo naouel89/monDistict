@@ -1,34 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos Categorie
-{% endblock %}
+{% block title %}Nos Catégories{% endblock %}
 
 {% block body %}
-	<div class="contenu">
-		<h1 class="fst-">Notre carte</h1>
-		<main class="container">
-			<div class="row">
-				{% for categorie in categories %}
-					<div class="col-md-6 mb-4 mt-4">
-						<div class="card" style="width: 18rem; background: rgba(255, 255, 255, 0.8);">
 
-							<a href="{{ path('app_plats_categorie', {'categorie_id': categorie.id}) }}">
-								<img class="card-img-top mx-auto" src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}">
-							</a>
-							
-							<div class="card-body">
-								<h5 class="card-title text-center">{{ categorie.libelle }}</h5>
-								{# Vous pouvez ajouter d'autres informations ici si nécessaire #}
-							</div>
-						</div>
-					</div>
-					{# Si vous avez affiché 2 cartes, fermez la rangée actuelle et commencez une nouvelle rangée #}
-					{% if loop.index is even %}
-					</div>
-					<div class="row">
-					{% endif %}
-				{% endfor %}
-			</div>
-		</main>
-	</div>
+    <div class="contenu">
+        <h1 class="fst-">Notre carte</h1>
+        <main class="container">
+            <div class="row">
+                {% set sortedCategories = categories|sort((a, b) => a.libelle <=> b.libelle) %}
+                {% for categorie in sortedCategories %}
+                    <div class="col-md-6 mb-4 mt-4">
+                        <div class="card" style="width: 18rem; background: rgba(255, 255, 255, 0.8);">
+
+                            <a href="{{ path('app_plats_categorie', {'categorie_id': categorie.id}) }}">
+                                <img class="card-img-top mx-auto" src="{{ asset('IMG/category/' ~ categorie.image) }}" alt="{{ categorie.libelle }}">
+                            </a>
+                            
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ categorie.libelle }}</h5>
+                                {# Vous pouvez ajouter d'autres informations ici si nécessaire #}
+                            </div>
+                        </div>
+                    </div>
+                    {# Si vous avez affiché 2 cartes, fermez la rangée actuelle et commencez une nouvelle rangée #}
+                    {% if loop.index is even %}
+                    </div>
+                    <div class="row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+    </div>
 {% endblock %}
