@@ -1,44 +1,47 @@
+/* Ajoutez ces styles à votre fichier CSS (style.css par exemple) */
 
-/* Style pour le conteneur principal */
-body {
-    background-color: #f7f7f7;
+
+.contenu {
+    background-image: url('public/IMG/wallpaperbetter.com_7680x4320.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+/* Style pour la vidéo */
+.contenu video {
+    width: 50%;
+    
+    display: block;
+    position: center;
 }
 
-
-.video-container {
-    position: relative;
-    overflow: hidden;
-    height: 200px; /* Ajustez la hauteur selon votre besoin */
+/* Style pour le carrousel */
+#carouselExampleAutoplaying {
+    width: 100%;
+    max-width: 1200px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: auto;
 }
 
-.video-container video {
-    width: 40%;
+#carouselExampleAutoplaying img {
+    width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
-#titre-accueil {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
+/* Autres styles pour le carrousel (optionnel) */
+.carousel-inner {
+    border-radius: 10px;
+    overflow: hidden;
 }
-/* .contenu {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.carousel-item {
     text-align: center;
-    color: white;
-} */
+}
 
 /* Style pour les cartes des catégories */
 .card {
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(255, 0, 0);
 }
 
 .card img {
@@ -51,22 +54,22 @@ body {
 .card-title {
     font-size: 1.25rem;
     margin-top: 1rem;
-    color: #333;
+    color: #ff0000;
 }
 
 /* Style pour le bouton de lien */
 .nav-link-custom {
-    color: #333;
+    color: #fe0000;
     transition: all 0.3s ease;
 }
 
 .nav-link-custom:hover {
-    color: #0095ff; /* Couleur au survol */
+    color: #ff0000; /* Couleur au survol */
 }
 
 /* Style pour le menu de navigation */
 .navbar {
-    background-color: #333;
+    background-color: #ff0000;
 }
 
 

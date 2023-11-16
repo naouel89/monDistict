@@ -20,6 +20,11 @@
                                 <p class="content bg-body">
                                     {{ plat.prix }} euros
                                 </p>
+                                 <div class="d-flex justify-content-between">
+                                    <button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
+                                    <input  name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}">
+                                    <button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
+                                </div>
                                 <a href="{{ path('panier_add_panier', { id: plat.id }) }}">Ajouter au panier</a>
                             </div>
                         </div>

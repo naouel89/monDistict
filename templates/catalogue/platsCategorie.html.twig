@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+
 	<div class="contenu">
 		<h1 class="row col-12 fst">Nos
 			{{ categories.libelle}}</h1>
@@ -20,7 +21,11 @@
 								<p class="card-text">
 									{{ plat.description}}</p>
 								<p class="content bg-body"> {{ plat.prix}}</p>
-						
+						 <div class="d-flex justify-content-between">
+                                    <button class="btn btn-secondary bg-danger quantity-button" data-plat-id="{{ plat.id }}" data-action="decrement">-</button>
+                                    <input  name="quantite" value="1" min="1" max="10" class="quantity-input col-2 text-center" data-plat-id="{{ plat.id }}">
+                                    <button class="btn btn-secondary bg-success quantity-button" data-plat-id="{{ plat.id }}" data-action="increment">+</button>
+                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -31,3 +36,4 @@
 		</main>
 	
 {% endblock %}
+
