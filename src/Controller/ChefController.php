@@ -18,7 +18,7 @@ class ChefController extends AbstractController
     {
 
         // Récupère tous les plats depuis la base de données
-        $plat = $entityManager->getRepository(Plat::class)->findAll();
+        $plats = $entityManager->getRepository(Plat::class)->findAll();
 
         // Crée une nouvelle instance de l'entité Plats et un formulaire associé
         $plat = new Plat();
@@ -41,7 +41,7 @@ class ChefController extends AbstractController
                     );
 
                     // Stockez le chemin complet dans la base de données
-                    $plat->setImage('IMG/' . $newFilename);
+                    $plat->setImage('img/food/' . $newFilename);
 
                 } catch (FileException $e) {
                     // Gérer l'exception, par exemple, afficher un message à l'utilisateur
@@ -62,7 +62,7 @@ class ChefController extends AbstractController
         // Rend la vue avec le formulaire et la liste des plats
         return $this->render('chef/dashboard.html.twig', [
             'form' => $form->createView(),
-            'plat' => $plat,
+            'plats' => $plats,
         ]);
     }
 

@@ -52,9 +52,9 @@
                 <li class="nav-item pe-4">
                     <a class="btn btn-order rounded-0 active" href="{{ path('app_plats') }}" style="color: #fff">Plats</a>
                 </li>
-                {# <li class="nav-item pe-4">
+                <li class="nav-item pe-4">
                     <a class="btn btn-order rounded-0 active" href="{{ path('app_panier') }}" style="color: #fff">Passer une commande</a>
-                </li> #}
+                </li>
 
                 <!-- Lien spécifique au rôle "Chef" -->
                 {% if is_granted('ROLE_CHEF') %}
@@ -62,6 +62,7 @@
                         <a class="btn btn-order rounded-0 {% if is_granted('ROLE_CHEF') %}active{% endif %}" href="{{ path('chef_dashboard') }}" style="color: #fff">Chef</a>
                     </li>
                 {% endif %}
+				
 
                 <!-- Lien de connexion/déconnexion -->
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
