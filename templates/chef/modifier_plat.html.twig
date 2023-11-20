@@ -5,18 +5,32 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Modifier Plat</h1>
+    <div class="container mt-5">
+        <h1>Modifier Plat</h1>
 
-    {# Afficher le formulaire de modification du plat #}
-    {{ form_start(form) }}
-    {{ form_row(form.libelle) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.prix) }}
-    {{ form_row(form.categorie) }}
-    {{ form_row(form.active) }}
-    {{ form_row(form._token) }}
-
-    <button type="submit">Modifier le plat</button>
-
-    {{ form_end(form) }}
+        {# Afficher le formulaire de modification du plat #}
+        <div class="mt-4">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            <div class="form-group">
+                {{ form_row(form.libelle, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.prix, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.categorie, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.active, {'attr': {'class': 'form-check-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form._token) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Modifier le plat</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
