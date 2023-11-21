@@ -1,5 +1,3 @@
-/* Ajoutez ces styles à votre fichier CSS (style.css par exemple) */
-
 
 .contenu {
     background-image: url('public/IMG/wallpaperbetter.com_7680x4320.jpg');
@@ -41,7 +39,7 @@
 .card {
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(255, 0, 0);
+    box-shadow: 0 4px 8px rgb(0, 89, 255);
 }
 
 .card img {
@@ -64,12 +62,12 @@
 }
 
 .nav-link-custom:hover {
-    color: #ff0000; /* Couleur au survol */
+    color: #0077ff; /* Couleur au survol */
 }
 
 /* Style pour le menu de navigation */
 .navbar {
-    background-color: #ff0000;
+    background-color: #006aff;
 }
 
 

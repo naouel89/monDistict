@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
@@ -16,38 +15,30 @@ class Commande
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_commande = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date_commande = null;
 
-   
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[ORM\Column(length: 255)]
     private ?string $total = null;
 
-    #[ORM\Column]
-    private ?int $etat = null;
-
-    #[ORM\ManyToOne(inversedBy: 'commandes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
 
     #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Detail::class)]
     private Collection $details;
 
-    
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
         $this->details = new ArrayCollection();
     }
 
-
-
     public function getId(): ?int
     {
         return $this->id;
     }
-    
     public function setId(int $id): static
     {
         $this->id = $id;
@@ -55,31 +46,18 @@ class Commande
         return $this;
     }
 
-    public function getDateCommande(): ?\DateTimeInterface
+    public function getDateCommande(): ?\DateTime
     {
         return $this->date_commande;
     }
 
-    public function setDateCommande(\DateTimeInterface $date_commande): static
+    public function setDateCommande(\DateTime $date_commande): static
     {
         $this->date_commande = $date_commande;
 
         return $this;
     }
 
-
-
-    public function getUtilisateur(): ?utilisateur
-    {
-        return $this->utilisateur;
-    }
-
-    public function setUtilisateur(?utilisateur $utilisateur_id): static
-    {
-        $this->utilisateur = $utilisateur_id;
-
-        return $this;
-    }
     public function getTotal(): ?string
     {
         return $this->total;
@@ -92,18 +70,17 @@ class Commande
         return $this;
     }
 
-    public function getEtat(): ?int
+    public function getEtat(): ?string
     {
         return $this->etat;
     }
 
-    public function setEtat(int $etat): static
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
 
         return $this;
     }
-
 
     /**
      * @return Collection<int, Detail>
@@ -135,4 +112,15 @@ class Commande
         return $this;
     }
 
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
 }

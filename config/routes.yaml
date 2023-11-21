@@ -5,23 +5,43 @@ controllers:
     type: attribute
 ajouter_au_panier:
     path: /ajouter-au-panier/{platId}/{platImage}/{platPrix}/{platDescription}
-    controller: App\Controller\DistrictController::ajouterAuPanier
+    controller: App\Controller\PlatController::ajouterAuPanier
     methods: ['GET','POST']
 app_panier:
     path: /panier
-    controller: App\Controller\DistrictController::voirPanier
-chef_dashboard:
-    path: '/chef/dashboard'
-    controller: 'App\Controller\ChefController::dashboard'
+    controller: App\Controller\PlatController::voirPanier
+Role_dashboard:
+    path: '/Role/dashboard'
+    controller: 'App\Controller\RoleController::dashboard'
     methods: ['GET', 'POST']
 modifier_plat:
-    path: '/chef/modifier/{id}'
-    controller: 'App\Controller\ChefController::modifierPlat'
+    path: '/Role/modifier/{id}'
+    controller: 'App\Controller\RoleController::modifierPlat'
     methods: ['GET', 'POST']
     requirements:
         id: '\d+'
 supprimer_plat:
-    path: '/chef/supprimer/{id}'
-    controller: 'App\Controller\ChefController::supprimerPlat'
+    path: '/Role/supprimer/{id}'
+    controller: 'App\Controller\RoleController::supprimerPlat'
     requirements:
         id: '\d+'
+app_finaliser:
+    path: /finaliser
+    controller: App\Controller\FinaliserController::index
+    methods: [GET, POST]
+
+app_politique:
+    path: /politique
+    controller: App\Controller\PoliMentionController::politique
+
+app_mentions:
+    path: /mentions
+    controller: App\Controller\PoliMentionController::mentions
+
+app_contact:
+    path: '/contact'
+    controller: 'App\Controller\ContactController::contact'
+    
+app_registration:
+    path: '/register'
+    controller: 'App\Controller\RegistrationController::register'
