@@ -16,21 +16,26 @@ use ApiPlatform\Metadata\Put;
 
 
 
-#[ORM\Entity(repositoryClass: CategorieRepository::class)]#[ApiResource(operations: [
+#[ORM\Entity(repositoryClass: CategorieRepository::class)]
+#[ApiResource(operations: [
     new Get(),  
     new Put(),
     new Patch(),
     new Delete(),
     new GetCollection(),
     new Post(),
-])]
+])] 
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+)]
 class Categorie
 
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[ApiResource]
+   
 
     private ?int $id = null;
 

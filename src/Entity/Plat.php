@@ -14,6 +14,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 
@@ -27,13 +28,17 @@ use ApiPlatform\Metadata\Put;
     new GetCollection(),
     new Post(),
 ])]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+)]
 class Plat
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     #[ApiResource]
-    
+
     private ?int $id = null;
     #[ORM\Column(length: 150)]
     private ?string $libelle = null;
