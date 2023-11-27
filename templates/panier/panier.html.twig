@@ -49,7 +49,7 @@
                                     {# Liens pour vider le panier, voir les plats, et finaliser la commande #}
                                     <a href="{{ path('panier_empty_panier') }}" class="btn btn-danger">Vider</a>
                                     <a href="{{ path('app_plats') }}" class="btn btn-primary">Plats</a>
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                     {% if data is not empty %}
                                     {# Stocker le prix total dans la variable de session #}
                                     {% set app_total = total %}
