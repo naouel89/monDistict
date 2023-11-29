@@ -9,6 +9,7 @@ Encore
     .setPublicPath('/build')
 
     .addEntry('app', './assets/app.js')
+    .addEntry('my-table', './assets/my-table.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

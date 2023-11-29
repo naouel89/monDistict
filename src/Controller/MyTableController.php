@@ -10,9 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MyTableController extends AbstractController
 {
-    /**
-     * @Route("/my-table", name="my_table")
-     */
+   
     #[Route('/table', name: 'app_my_table')]
     public function index(): Response
     {
