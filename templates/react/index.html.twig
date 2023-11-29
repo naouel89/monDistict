@@ -4,5 +4,22 @@
 {% endblock %}
 
 {% block body %}
-     <div id="react-app"></div>
+<br><br><br>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Projet</title>
+    {{ encore_entry_link_tags('app') }}
+</head>
+<body>
+    <div id="react-app"></div>
+    <!-- Autres éléments de votre page -->
+    {{ encore_entry_script_tags('app') }}
+</body>
+</html>
+
 {% endblock %}

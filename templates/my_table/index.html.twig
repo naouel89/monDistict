@@ -1,0 +1,26 @@
+{% block title %}Table des Utilisateurs{% endblock %}
+{% block body %}
+    <h1>Table des Utilisateurs</h1>
+    <div id="my-table"></div>
+
+    <script>
+        // Include React
+        const { createElement } = MyTable;
+
+        // Include the React component
+        const { default: MyTable } = require('./MyTable.js');
+
+        // Function to initialize the React component
+        function initMyTable() {
+            ReactDOM.render(
+                createElement(MyTable),
+                document.getElementById('my-table')
+            );
+        }
+
+        // Call the initialization function
+        initMyTable();
+    </script>
+
+
+{% endblock %}

@@ -1,8 +1,5 @@
-// assets/app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MonPremierComposant from '../react/my_react_app/jsx/MonPremierComposant';
 
-// import logo from '../images/logo.png';
-// import '../css/styles.css';
-
-// const img = document.createElement('img');
-// img.src = logo;
-// document.body.appendChild(img);
+ReactDOM.render(<MonPremierComposant />, document.getElementById('react-app'));

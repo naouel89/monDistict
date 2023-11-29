@@ -45,3 +45,9 @@ app_contact:
 app_registration:
     path: '/register'
     controller: 'App\Controller\RegistrationController::register'
+
+    # config/routes.yaml
+
+my_table:
+    path: /my_table
+    controller: App\Controller\MyTableController::index
